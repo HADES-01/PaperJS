@@ -1,0 +1,28 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+canvas {
+    height: 80%;
+    width: 100%;
+    background-color: white;
+}
+
+.navbar {
+    background-color: #fff;
+    width: 100%;
+}
+
+.size, .color {
+    width: 16rem;
+    height: 41px;
+    border: none;
+    padding: 9px;
+    background-color: white;
+    border-radius: 3px;
+    margin: 0.3rem;
+    display: inline-block;
+}

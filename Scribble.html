@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circles</title>
+    <link rel="icon" href="assets/images/favicon-16x16.png" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/Scribble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/js/paper-full.js" type="text/javascript"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+        var myPath;
+        var color = "#000";
+        var size = "1";
+        document.querySelector(".color").addEventListener("change", function () {
+            color = this.value;
+        });
+        document.querySelector(".size").addEventListener("change", function () {
+            size = this.value;
+        });
+        document.querySelector("#reload").addEventListener("click", function() {
+           project.clear();
+        });
+        function onMouseDown(event) {
+            var mystyle = {
+                strokeColor: color,
+                strokeWidth: size,
+                strokeCap: 'round',
+            }
+            myPath = new Path();
+            myPath.style = mystyle;
+        }
+        function onMouseDrag(event) {
+            myPath.add(event.point);
+            myPath.smooth();
+        }
+        function onMouseUp(event) {
+            myPath.add(event.point);
+            myPath.smooth();
+            myPath.simplify();
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#" style="font-size: 30px">
+    <img src="assets/images/favicon-16x16.png" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy"> SCRIBBLED</a>
+    <button class="btn btn-danger" id="reload"><i class="fa fa-repeat"></i></button>
+</nav>
+<canvas id="myCanvas" resize="true"></canvas>
+<br>
+<label><span style="font-size: 20px">Select a Brush Size</span>
+    <select class="size">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+</label>
+<label><span style="font-size: 20px">Select Brush Color</span>
+    <input type="color" class="color">
+</label>
+</body>
+</html>

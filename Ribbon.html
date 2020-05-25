@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/images/favicon-16x16.png" type="image/icon type">
+    <title>Ribbon</title>
+    <script src="assets/js/paper-full.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/Circles.css">
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/js/bootstrap.js" type="text/javascript"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+        var points = 25;
+        var length = 45;
+        var ribbon = new Path({
+            strokeColor: 'white',
+            strokeWidth: 20,
+            strokeCap: 'round'
+        });
+        var start = view.center;
+        for(var i = 0; i < points; i++){
+            ribbon.add(start + new Point(i * length, 0))
+        }
+        function onMouseMove(event) {
+            ribbon.firstSegment.point = event.point;
+            for(var i = 0; i < points - 1; i++){
+                var direction = ribbon.segments[i].point - ribbon.segments[i + 1].point;
+                direction.length = length;
+                ribbon.segments[i + 1].point = ribbon.segments[i].point - direction;
+            }
+            ribbon.smooth({type: 'continuous'});
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">
+    <img src="assets/images/favicon-16x16.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    PaperJS
+  </a>
+</nav>
+<canvas id="myCanvas" resize="true"></canvas>
+</body>
+</html>
