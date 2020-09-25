@@ -3,7 +3,7 @@ This is a repository that contain various *Cool Examples* of PaperJS that shows 
 
 ### This is an header
 
-- [] checkbox
+- [ ] checkbox
 
 [Aditya] (https:\\www.google.com)
 
@@ -12,4 +12,4 @@ dict = {'key': 'some'}
 print(dict['key'])
 ```
 
-# HAHAHAHAHA
+# YAY!!!
