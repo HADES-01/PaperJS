@@ -5,7 +5,7 @@ This is a repository that contain various *Cool Examples* of PaperJS that shows 
 
 - [ ] checkbox
 
-[Aditya] (https:\\www.google.com)
+### __[GOOGLE](https:\\www.google.com)__
 
 ```python
 dict = {'key': 'some'}
@@ -13,3 +13,4 @@ print(dict['key'])
 ```
 
 # YAY!!!
+
