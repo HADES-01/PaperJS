@@ -11,3 +11,5 @@ This is a repository that contain various *Cool Examples* of PaperJS that shows 
 dict = {'key': 'some'}
 print(dict['key'])
 ```
+
+# HAHAHAHAHA
